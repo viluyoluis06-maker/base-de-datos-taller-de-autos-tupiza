@@ -1,0 +1,38 @@
+PROYECTO – TALLER DE AUTOS
+
+1.Relación CLIENTE – AUTO (POSEE)
+-Cardinalidad:Cliente (1,N) – Auto (1,1).
+-Regla de negocio: Todo automóvil registrado en el taller debe estar asociado a un cliente, y un cliente puede registrar varios automóviles.
+-Justificación: La cardinalidad es (1,N) para Cliente porque puede tener uno o varios autos. Para Auto es (1,1) porque cada automóvil pertenece obligatoriamente a un solo cliente.
+
+
+2. Relación AUTO – ORDEN DE TRABAJO (GENERA)
+-Cardinalidad: Auto (0,N) – Orden de Trabajo (1,1).
+-Regla de negocio: Un automóvil puede ingresar al taller varias veces y generar diferentes órdenes de trabajo. Cada orden corresponde a un único automóvil.
+-Justificación: Auto tiene (0,N) porque puede no tener órdenes o tener varias. Orden de Trabajo tiene (1,1) porque obligatoriamente debe estar relacionada con un solo automóvil.
+
+
+3. Relación MECÁNICO – ORDEN DE TRABAJO (ATIENDE)
+-Cardinalidad: Mecánico (0,N) – Orden de Trabajo (1,N).
+-Regla de negocio: Un mecánico puede participar en diferentes órdenes de trabajo, mientras que cada orden debe contar con la participación de al menos un mecánico.
+-Justificación: Mecánico tiene (0,N) porque puede no tener órdenes asignadas o participar en muchas. Orden de Trabajo tiene (1,N) porque necesita al menos un mecánico para realizar la reparación.
+Atributo de la relación:Horas_trabajo.
+
+
+4. Relación ORDEN DE TRABAJO – REPUESTO (UTILIZA)
+Cardinalidad:Orden de Trabajo (1,N) – Repuesto (0,N).
+Regla de negocio: Cada orden de trabajo debe utilizar al menos un repuesto, y un mismo repuesto puede utilizarse en diferentes órdenes.
+
+Justificación: Orden de Trabajo tiene (1,N) porque debe utilizar uno o varios repuestos. Repuesto tiene (0,N) porque puede no haberse utilizado todavía o utilizarse en muchas órdenes.
+Atributo de la relación: Cantidad_usada.
+
+
+5. Relación MECÁNICO – MECÁNICO (SUPERVISA)
+Cardinalidad: Jefe (0,N) – Mecánico supervisado (0,1).
+Regla de negocio: Un mecánico con cargo de jefe puede supervisar a varios mecánicos, mientras que cada mecánico puede tener como máximo un jefe.
+Justificación: El jefe tiene (0,N) porque puede no supervisar a nadie o supervisar a varios mecánicos. El mecánico supervisado tiene (0,1) porque puede no tener jefe o depender de uno solo.
+
+
+6. Jerarquía AUTO – PARTICULAR / FLOTA
+Regla de negocio: Todo automóvil registrado debe clasificarse como particular o perteneciente a una flota empresarial.
+Justificación: Se utiliza una jerarquía EER donde AUTO es la superclase y PARTICULA y FLOTA son las subclases. La especialización es total y conjunta, porque todo auto debe pertenecer a una sola catego
